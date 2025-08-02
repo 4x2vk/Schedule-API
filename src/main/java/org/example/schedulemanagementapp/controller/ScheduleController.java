@@ -1,6 +1,8 @@
 package org.example.schedulemanagementapp.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.schedulemanagementapp.dto.ScheduleUpdateRequestDto;
+import org.example.schedulemanagementapp.dto.ScheduleUpdateResponseDto;
 import org.example.schedulemanagementapp.service.ScheduleService;
 import org.example.schedulemanagementapp.dto.ScheduleRequestDto;
 import org.example.schedulemanagementapp.dto.ScheduleResponseDto;
@@ -26,5 +28,10 @@ public class ScheduleController {
     @GetMapping("/schedule/{id}")
     public ScheduleResponseDto getMember(@PathVariable Long id) {
         return scheduleService.findById(id);
+    }
+
+    @PutMapping("/schedule/{id}")
+    public ScheduleUpdateResponseDto updateSchedule(@PathVariable Long id, @RequestBody ScheduleUpdateRequestDto scheduleUpdateRequestDto) {
+        return scheduleService.updateSchedule(id, scheduleUpdateRequestDto);
     }
 }
