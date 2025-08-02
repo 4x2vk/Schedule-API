@@ -1,10 +1,7 @@
 package org.example.schedulemanagementapp.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.schedulemanagementapp.dto.ScheduleRequestDto;
-import org.example.schedulemanagementapp.dto.ScheduleResponseDto;
-import org.example.schedulemanagementapp.dto.ScheduleUpdateRequestDto;
-import org.example.schedulemanagementapp.dto.ScheduleUpdateResponseDto;
+import org.example.schedulemanagementapp.dto.*;
 import org.example.schedulemanagementapp.entity.Schedule;
 import org.example.schedulemanagementapp.repository.ScheduleRepository;
 import org.springframework.http.HttpStatus;
@@ -85,6 +82,17 @@ public class ScheduleService {
         scheduleRepository.save(schedule);
 
         return new ScheduleUpdateResponseDto(schedule.getTitle(),schedule.getContents(),schedule.getName(), schedule.getCreatedAt(), schedule.getModifiedAt());
+    }
+
+    @Transactional
+    public void deleteById(Long id, ScheduleDeleteRequestDto scheduleDeleteRequestDto) {
+        Schedule schedule = scheduleRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Schedule with id %d not found", id)));
+
+        String recentPassword = schedule.getPassword();
+        
+        checkPassword(scheduleDeleteRequestDto.getPassword(), recentPassword);
+        scheduleRepository.deleteById(id);
     }
 
     private void checkPassword(String inputPassword, String recentPassword) {

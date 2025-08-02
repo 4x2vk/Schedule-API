@@ -1,11 +1,8 @@
 package org.example.schedulemanagementapp.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.schedulemanagementapp.dto.ScheduleUpdateRequestDto;
-import org.example.schedulemanagementapp.dto.ScheduleUpdateResponseDto;
+import org.example.schedulemanagementapp.dto.*;
 import org.example.schedulemanagementapp.service.ScheduleService;
-import org.example.schedulemanagementapp.dto.ScheduleRequestDto;
-import org.example.schedulemanagementapp.dto.ScheduleResponseDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,5 +30,10 @@ public class ScheduleController {
     @PutMapping("/schedule/{id}")
     public ScheduleUpdateResponseDto updateSchedule(@PathVariable Long id, @RequestBody ScheduleUpdateRequestDto scheduleUpdateRequestDto) {
         return scheduleService.updateSchedule(id, scheduleUpdateRequestDto);
+    }
+
+    @DeleteMapping("/schedule/{id}")
+    public void deleteSchedule(@PathVariable Long id, @RequestBody ScheduleDeleteRequestDto scheduleDeleteRequestDto) {
+        scheduleService.deleteById(id, scheduleDeleteRequestDto);
     }
 }
