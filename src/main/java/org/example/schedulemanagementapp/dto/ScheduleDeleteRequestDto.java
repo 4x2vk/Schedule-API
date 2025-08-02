@@ -3,8 +3,6 @@ package org.example.schedulemanagementapp.dto;
 import lombok.Getter;
 
 @Getter
-public class ScheduleUpdateRequestDto {
-    private String title;
+public class ScheduleDeleteRequestDto {
     private String password;
-    private String name;
 }
