@@ -3,6 +3,8 @@ package org.example.schedulemanagementapp.service;
 import lombok.RequiredArgsConstructor;
 import org.example.schedulemanagementapp.dto.ScheduleRequestDto;
 import org.example.schedulemanagementapp.dto.ScheduleResponseDto;
+import org.example.schedulemanagementapp.dto.ScheduleUpdateRequestDto;
+import org.example.schedulemanagementapp.dto.ScheduleUpdateResponseDto;
 import org.example.schedulemanagementapp.entity.Schedule;
 import org.example.schedulemanagementapp.repository.ScheduleRepository;
 import org.springframework.http.HttpStatus;
@@ -68,5 +70,26 @@ public class ScheduleService {
                 schedule.getCreatedAt(),
                 schedule.getModifiedAt()
         );
+    }
+
+    @Transactional
+    public ScheduleUpdateResponseDto updateSchedule(Long id, ScheduleUpdateRequestDto scheduleUpdateRequestDto) {
+        Schedule schedule = scheduleRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Schedule with id %d not found", id)));
+
+        String recentPassword = schedule.getPassword();
+
+        schedule.changeTitle(scheduleUpdateRequestDto.getTitle());
+        schedule.changeName(scheduleUpdateRequestDto.getName());
+        checkPassword(scheduleUpdateRequestDto.getPassword(), recentPassword);
+        scheduleRepository.save(schedule);
+
+        return new ScheduleUpdateResponseDto(schedule.getTitle(),schedule.getContents(),schedule.getName(), schedule.getCreatedAt(), schedule.getModifiedAt());
+    }
+
+    private void checkPassword(String inputPassword, String recentPassword) {
+        if (!inputPassword.equals(recentPassword)) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
     }
 }
