@@ -2,12 +2,13 @@
 
 > A lightweight RESTful service for managing schedules — create, view, update, and delete events securely with password-based verification.
 <img width="1397" height="753" alt="image" src="https://github.com/user-attachments/assets/4b7ceb6c-b52d-4a98-bb58-24756fc17be7" />
+
 ---
 
 ## Built with
 
 ![JDK 17](https://img.shields.io/badge/JDK-17-orange?logo=java&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
+[![Spring Boot 3.5.4](https://img.shields.io/badge/Spring%20Boot-3.5.4-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 ![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?logo=spring&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
 ![Lombok](https://img.shields.io/badge/Lombok-ED1C24?logo=java&logoColor=white)
