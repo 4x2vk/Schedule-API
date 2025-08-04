@@ -41,7 +41,7 @@ Full documentation now lives:
 
 Visual representation of the database schema:
 
-🔗 [View ERD from this link (Sign in will be required)](https://documenter.getpostman.com/view/47183182/2sB3BANDXa)
+🔗 [View ERD from this link](https://github.com/4x2vk/Schedule-API/issues/6)
 
 ---
 
