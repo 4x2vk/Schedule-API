@@ -1,7 +1,7 @@
 # 🗓️ Schedule API
 
 > A lightweight RESTful service for managing schedules — create, view, update, and delete events securely with password-based verification.
-
+<img width="1397" height="753" alt="image" src="https://github.com/user-attachments/assets/4b7ceb6c-b52d-4a98-bb58-24756fc17be7" />
 ---
 
 ## Built with
@@ -41,7 +41,7 @@ Full documentation now lives:
 
 Visual representation of the database schema:
 
-🔗 [View ERD from this link (Sign in will be required)](https://lucid.app/lucidchart/5b34a8d6-1abe-4a5a-980f-daa03deddaa7/edit?viewport_loc=289%2C-1261%2C1233%2C579%2C0_0&invitationId=inv_d24734b7-fbe6-46bb-8650-1124f6c28951)
+🔗 [View ERD from this link (Sign in will be required)](https://documenter.getpostman.com/view/47183182/2sB3BANDXa)
 
 ---
 
