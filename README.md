@@ -4,6 +4,14 @@
 
 ---
 
+## Built with
+
+![JDK 17](https://img.shields.io/badge/JDK-17-orange?logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+
+---
 ## Features
 
 - Create new schedules with title, contents, editor and password
@@ -12,7 +20,7 @@
 - Delete a schedule by ID (password required)
 - Auto-generated timestamps for creation and last update
 
-## 🔐 Security & Authorization
+## Security & Authorization
 
 - No user login required
 - Password-based protection for updating and deleting schedules
@@ -49,18 +57,6 @@ Content-Type: application/json
 }
 ```
 
-## Tech Stack
-
-- **JDK 17**
-- **Spring Boot**
-- **Spring Data JPA**
-- **MySQL / H2** (configurable)
-- **Lombok**
-- **RESTful API**
-
----
-
-
 ## 📁Directory Structure
 ```
 src/
@@ -68,6 +64,6 @@ src/
 ├── service/       # Business logic                
 ├── repository/    # JPA repositories
 ├── entity/        # JPA entities
-├── dto/           # Request/Response DTO
+├── dto/           # Request/Response DTOs
 └── ScheduleApiApplication.java
 ```
